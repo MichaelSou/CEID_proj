@@ -1,0 +1,655 @@
+
+3oErgasthrio.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00802800  00802800  00000470  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000003fc  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000006  00802800  00802800  00000470  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000470  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000004a0  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000058  00000000  00000000  000004e0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00003080  00000000  00000000  00000538  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000022ef  00000000  00000000  000035b8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000004c4  00000000  00000000  000058a7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  0000016c  00000000  00000000  00005d6c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000016a6  00000000  00000000  00005ed8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000397  00000000  00000000  0000757e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000048  00000000  00000000  00007915  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 48 00 	jmp	0x90	; 0x90 <__ctors_end>
+   4:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+   8:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+   c:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  10:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  14:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  18:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  1c:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  20:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  24:	0c 94 75 01 	jmp	0x2ea	; 0x2ea <__vector_9>
+  28:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  2c:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  30:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  34:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  38:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  3c:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  40:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  44:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  48:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  4c:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  50:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  54:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  58:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  5c:	0c 94 a1 00 	jmp	0x142	; 0x142 <__vector_23>
+  60:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  64:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  68:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  6c:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  70:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  74:	0c 94 fa 00 	jmp	0x1f4	; 0x1f4 <__vector_29>
+  78:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  7c:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  80:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  84:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  88:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+  8c:	0c 94 5a 00 	jmp	0xb4	; 0xb4 <__bad_interrupt>
+
+00000090 <__ctors_end>:
+  90:	11 24       	eor	r1, r1
+  92:	1f be       	out	0x3f, r1	; 63
+  94:	cf ef       	ldi	r28, 0xFF	; 255
+  96:	cd bf       	out	0x3d, r28	; 61
+  98:	df e3       	ldi	r29, 0x3F	; 63
+  9a:	de bf       	out	0x3e, r29	; 62
+
+0000009c <__do_clear_bss>:
+  9c:	28 e2       	ldi	r18, 0x28	; 40
+  9e:	a0 e0       	ldi	r26, 0x00	; 0
+  a0:	b8 e2       	ldi	r27, 0x28	; 40
+  a2:	01 c0       	rjmp	.+2      	; 0xa6 <.do_clear_bss_start>
+
+000000a4 <.do_clear_bss_loop>:
+  a4:	1d 92       	st	X+, r1
+
+000000a6 <.do_clear_bss_start>:
+  a6:	a6 30       	cpi	r26, 0x06	; 6
+  a8:	b2 07       	cpc	r27, r18
+  aa:	e1 f7       	brne	.-8      	; 0xa4 <.do_clear_bss_loop>
+  ac:	0e 94 a4 01 	call	0x348	; 0x348 <main>
+  b0:	0c 94 fc 01 	jmp	0x3f8	; 0x3f8 <_exit>
+
+000000b4 <__bad_interrupt>:
+  b4:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000b8 <LED_init>:
+//οι παρακάτω συναρτήσεις ειναι για την αρχικοποίηση των led 
+//και για ευκολία στον προγραμματισμο πχ η LED0(1) αναβει το LED στο pin1
+
+void LED_init(void)
+{
+	PORTD.DIR |= PIN1_bm; //PIN is output ευθεία
+  b8:	e0 e6       	ldi	r30, 0x60	; 96
+  ba:	f4 e0       	ldi	r31, 0x04	; 4
+  bc:	80 81       	ld	r24, Z
+  be:	82 60       	ori	r24, 0x02	; 2
+  c0:	80 83       	st	Z, r24
+	PORTD.OUT |= PIN1_bm; //LED is off
+  c2:	84 81       	ldd	r24, Z+4	; 0x04
+  c4:	82 60       	ori	r24, 0x02	; 2
+  c6:	84 83       	std	Z+4, r24	; 0x04
+	PORTD.DIR |= PIN2_bm; //PIN is output αριστερά
+  c8:	80 81       	ld	r24, Z
+  ca:	84 60       	ori	r24, 0x04	; 4
+  cc:	80 83       	st	Z, r24
+	PORTD.OUT |= PIN2_bm; //LED is off
+  ce:	84 81       	ldd	r24, Z+4	; 0x04
+  d0:	84 60       	ori	r24, 0x04	; 4
+  d2:	84 83       	std	Z+4, r24	; 0x04
+	PORTD.DIR |= PIN3_bm; //PIN is output δεξιά
+  d4:	80 81       	ld	r24, Z
+  d6:	88 60       	ori	r24, 0x08	; 8
+  d8:	80 83       	st	Z, r24
+	PORTD.OUT |= PIN3_bm; //LED is off
+  da:	84 81       	ldd	r24, Z+4	; 0x04
+  dc:	88 60       	ori	r24, 0x08	; 8
+  de:	84 83       	std	Z+4, r24	; 0x04
+  e0:	08 95       	ret
+
+000000e2 <LED0>:
+}
+void LED0(int status)
+{	
+	if (status == 1)
+  e2:	81 30       	cpi	r24, 0x01	; 1
+  e4:	91 05       	cpc	r25, r1
+  e6:	29 f4       	brne	.+10     	; 0xf2 <LED0+0x10>
+	{
+		/* LED(ON) */
+		PORTD.OUT &= ~PIN1_bm;
+  e8:	e0 e6       	ldi	r30, 0x60	; 96
+  ea:	f4 e0       	ldi	r31, 0x04	; 4
+  ec:	24 81       	ldd	r18, Z+4	; 0x04
+  ee:	2d 7f       	andi	r18, 0xFD	; 253
+  f0:	24 83       	std	Z+4, r18	; 0x04
+	}
+	if (status == 0)
+  f2:	89 2b       	or	r24, r25
+  f4:	29 f4       	brne	.+10     	; 0x100 <__EEPROM_REGION_LENGTH__>
+	{
+		/* LED(OFF) */
+		PORTD.OUT |= PIN1_bm;
+  f6:	e0 e6       	ldi	r30, 0x60	; 96
+  f8:	f4 e0       	ldi	r31, 0x04	; 4
+  fa:	84 81       	ldd	r24, Z+4	; 0x04
+  fc:	82 60       	ori	r24, 0x02	; 2
+  fe:	84 83       	std	Z+4, r24	; 0x04
+ 100:	08 95       	ret
+
+00000102 <LED1>:
+	}
+}
+void LED1(int status)
+{
+	if (status == 1)
+ 102:	81 30       	cpi	r24, 0x01	; 1
+ 104:	91 05       	cpc	r25, r1
+ 106:	29 f4       	brne	.+10     	; 0x112 <LED1+0x10>
+	{
+		/* LED(ON) */
+		PORTD.OUT &= ~PIN2_bm;
+ 108:	e0 e6       	ldi	r30, 0x60	; 96
+ 10a:	f4 e0       	ldi	r31, 0x04	; 4
+ 10c:	24 81       	ldd	r18, Z+4	; 0x04
+ 10e:	2b 7f       	andi	r18, 0xFB	; 251
+ 110:	24 83       	std	Z+4, r18	; 0x04
+	}
+	if (status == 0)
+ 112:	89 2b       	or	r24, r25
+ 114:	29 f4       	brne	.+10     	; 0x120 <LED1+0x1e>
+	{
+		/* LED(OFF) */
+		PORTD.OUT |= PIN2_bm;
+ 116:	e0 e6       	ldi	r30, 0x60	; 96
+ 118:	f4 e0       	ldi	r31, 0x04	; 4
+ 11a:	84 81       	ldd	r24, Z+4	; 0x04
+ 11c:	84 60       	ori	r24, 0x04	; 4
+ 11e:	84 83       	std	Z+4, r24	; 0x04
+ 120:	08 95       	ret
+
+00000122 <LED2>:
+	}
+}
+void LED2(int status)
+{
+	if (status == 1)
+ 122:	81 30       	cpi	r24, 0x01	; 1
+ 124:	91 05       	cpc	r25, r1
+ 126:	29 f4       	brne	.+10     	; 0x132 <LED2+0x10>
+	{
+		/* LED(ON) */
+		PORTD.OUT &= ~PIN3_bm;
+ 128:	e0 e6       	ldi	r30, 0x60	; 96
+ 12a:	f4 e0       	ldi	r31, 0x04	; 4
+ 12c:	24 81       	ldd	r18, Z+4	; 0x04
+ 12e:	27 7f       	andi	r18, 0xF7	; 247
+ 130:	24 83       	std	Z+4, r18	; 0x04
+	}
+	if (status == 0)
+ 132:	89 2b       	or	r24, r25
+ 134:	29 f4       	brne	.+10     	; 0x140 <LED2+0x1e>
+	{
+		/* LED(OFF) */
+		PORTD.OUT |= PIN3_bm;
+ 136:	e0 e6       	ldi	r30, 0x60	; 96
+ 138:	f4 e0       	ldi	r31, 0x04	; 4
+ 13a:	84 81       	ldd	r24, Z+4	; 0x04
+ 13c:	88 60       	ori	r24, 0x08	; 8
+ 13e:	84 83       	std	Z+4, r24	; 0x04
+ 140:	08 95       	ret
+
+00000142 <__vector_23>:
+}
+
+
+//interupts
+
+ISR(ADC0_WCOMP_vect){
+ 142:	1f 92       	push	r1
+ 144:	0f 92       	push	r0
+ 146:	0f b6       	in	r0, 0x3f	; 63
+ 148:	0f 92       	push	r0
+ 14a:	11 24       	eor	r1, r1
+ 14c:	2f 93       	push	r18
+ 14e:	3f 93       	push	r19
+ 150:	4f 93       	push	r20
+ 152:	5f 93       	push	r21
+ 154:	6f 93       	push	r22
+ 156:	7f 93       	push	r23
+ 158:	8f 93       	push	r24
+ 15a:	9f 93       	push	r25
+ 15c:	af 93       	push	r26
+ 15e:	bf 93       	push	r27
+ 160:	ef 93       	push	r30
+ 162:	ff 93       	push	r31
+	int intflags = ADC0.INTFLAGS;
+ 164:	e0 e0       	ldi	r30, 0x00	; 0
+ 166:	f6 e0       	ldi	r31, 0x06	; 6
+ 168:	83 85       	ldd	r24, Z+11	; 0x0b
+	ADC0.INTFLAGS = intflags;
+ 16a:	83 87       	std	Z+11, r24	; 0x0b
+	if (reverse == 0)
+ 16c:	80 91 04 28 	lds	r24, 0x2804	; 0x802804 <reverse>
+ 170:	90 91 05 28 	lds	r25, 0x2805	; 0x802805 <reverse+0x1>
+ 174:	89 2b       	or	r24, r25
+ 176:	b9 f4       	brne	.+46     	; 0x1a6 <__vector_23+0x64>
+	{
+		LED1(1);
+ 178:	81 e0       	ldi	r24, 0x01	; 1
+ 17a:	90 e0       	ldi	r25, 0x00	; 0
+ 17c:	0e 94 81 00 	call	0x102	; 0x102 <LED1>
+		corners++;//αυξάνουμε τις γωνίες κατα 1
+ 180:	80 91 02 28 	lds	r24, 0x2802	; 0x802802 <corners>
+ 184:	90 91 03 28 	lds	r25, 0x2803	; 0x802803 <corners+0x1>
+ 188:	01 96       	adiw	r24, 0x01	; 1
+ 18a:	80 93 02 28 	sts	0x2802, r24	; 0x802802 <corners>
+ 18e:	90 93 03 28 	sts	0x2803, r25	; 0x802803 <corners+0x1>
+		room_outline_corners--;//στρίβει αριστερά οπότε αφαιρεί γωνιες για να φτασει στο -4
+ 192:	80 91 00 28 	lds	r24, 0x2800	; 0x802800 <__DATA_REGION_ORIGIN__>
+ 196:	90 91 01 28 	lds	r25, 0x2801	; 0x802801 <__DATA_REGION_ORIGIN__+0x1>
+ 19a:	01 97       	sbiw	r24, 0x01	; 1
+ 19c:	80 93 00 28 	sts	0x2800, r24	; 0x802800 <__DATA_REGION_ORIGIN__>
+ 1a0:	90 93 01 28 	sts	0x2801, r25	; 0x802801 <__DATA_REGION_ORIGIN__+0x1>
+ 1a4:	0d c0       	rjmp	.+26     	; 0x1c0 <__vector_23+0x7e>
+
+	}
+	else
+	{
+		LED2(1);
+ 1a6:	81 e0       	ldi	r24, 0x01	; 1
+ 1a8:	90 e0       	ldi	r25, 0x00	; 0
+ 1aa:	0e 94 91 00 	call	0x122	; 0x122 <LED2>
+		corners--;//μειώνουμε τις γωνίες κατα 1 γιατι κάνει την ανάποδη πορεία
+ 1ae:	80 91 02 28 	lds	r24, 0x2802	; 0x802802 <corners>
+ 1b2:	90 91 03 28 	lds	r25, 0x2803	; 0x802803 <corners+0x1>
+ 1b6:	01 97       	sbiw	r24, 0x01	; 1
+ 1b8:	80 93 02 28 	sts	0x2802, r24	; 0x802802 <corners>
+ 1bc:	90 93 03 28 	sts	0x2803, r25	; 0x802803 <corners+0x1>
+
+	}
+
+	TCA0.SINGLE.CTRLA = TCA_SINGLE_CLKSEL_DIV1024_gc;
+ 1c0:	e0 e0       	ldi	r30, 0x00	; 0
+ 1c2:	fa e0       	ldi	r31, 0x0A	; 10
+ 1c4:	8e e0       	ldi	r24, 0x0E	; 14
+ 1c6:	80 83       	st	Z, r24
+	TCA0.SINGLE.CTRLA |=1;//Enable
+ 1c8:	80 81       	ld	r24, Z
+ 1ca:	81 60       	ori	r24, 0x01	; 1
+ 1cc:	80 83       	st	Z, r24
+	TCA0.SINGLE.INTCTRL = TCA_SINGLE_CMP0_bm; //Interrupt Enable
+ 1ce:	80 e1       	ldi	r24, 0x10	; 16
+ 1d0:	82 87       	std	Z+10, r24	; 0x0a
+
+}
+ 1d2:	ff 91       	pop	r31
+ 1d4:	ef 91       	pop	r30
+ 1d6:	bf 91       	pop	r27
+ 1d8:	af 91       	pop	r26
+ 1da:	9f 91       	pop	r25
+ 1dc:	8f 91       	pop	r24
+ 1de:	7f 91       	pop	r23
+ 1e0:	6f 91       	pop	r22
+ 1e2:	5f 91       	pop	r21
+ 1e4:	4f 91       	pop	r20
+ 1e6:	3f 91       	pop	r19
+ 1e8:	2f 91       	pop	r18
+ 1ea:	0f 90       	pop	r0
+ 1ec:	0f be       	out	0x3f, r0	; 63
+ 1ee:	0f 90       	pop	r0
+ 1f0:	1f 90       	pop	r1
+ 1f2:	18 95       	reti
+
+000001f4 <__vector_29>:
+
+ISR(PORTF_PORT_vect){
+ 1f4:	1f 92       	push	r1
+ 1f6:	0f 92       	push	r0
+ 1f8:	0f b6       	in	r0, 0x3f	; 63
+ 1fa:	0f 92       	push	r0
+ 1fc:	11 24       	eor	r1, r1
+ 1fe:	2f 93       	push	r18
+ 200:	3f 93       	push	r19
+ 202:	4f 93       	push	r20
+ 204:	5f 93       	push	r21
+ 206:	6f 93       	push	r22
+ 208:	7f 93       	push	r23
+ 20a:	8f 93       	push	r24
+ 20c:	9f 93       	push	r25
+ 20e:	af 93       	push	r26
+ 210:	bf 93       	push	r27
+ 212:	ef 93       	push	r30
+ 214:	ff 93       	push	r31
+	//clear the interrupt flag
+	int check = PORTF.INTFLAGS;
+ 216:	e0 ea       	ldi	r30, 0xA0	; 160
+ 218:	f4 e0       	ldi	r31, 0x04	; 4
+ 21a:	81 85       	ldd	r24, Z+9	; 0x09
+	int intflags = PORTF.INTFLAGS;
+ 21c:	81 85       	ldd	r24, Z+9	; 0x09
+	PORTF.INTFLAGS=intflags;
+ 21e:	81 87       	std	Z+9, r24	; 0x09
+	//το 5ο pin εχει την τιμη 0x20 η οποια ειναι το 32 και ελεγχουμε ετσι
+	//αν ο χρηστης πατησε το 5ο η το 6ο κουμπι και το interupt εκτελει τον αναλογο κωδικα
+	if (intflags == 32)
+ 220:	80 32       	cpi	r24, 0x20	; 32
+ 222:	59 f5       	brne	.+86     	; 0x27a <__vector_29+0x86>
+	{
+		if (reverse == 0)
+ 224:	80 91 04 28 	lds	r24, 0x2804	; 0x802804 <reverse>
+ 228:	90 91 05 28 	lds	r25, 0x2805	; 0x802805 <reverse+0x1>
+ 22c:	89 2b       	or	r24, r25
+ 22e:	b9 f4       	brne	.+46     	; 0x25e <__vector_29+0x6a>
+		{
+			LED2(1);
+ 230:	81 e0       	ldi	r24, 0x01	; 1
+ 232:	90 e0       	ldi	r25, 0x00	; 0
+ 234:	0e 94 91 00 	call	0x122	; 0x122 <LED2>
+			corners++;//αυξάνουμε τις γωνίες κατα 1 μεχρι να φτασουμε τις 8
+ 238:	80 91 02 28 	lds	r24, 0x2802	; 0x802802 <corners>
+ 23c:	90 91 03 28 	lds	r25, 0x2803	; 0x802803 <corners+0x1>
+ 240:	01 96       	adiw	r24, 0x01	; 1
+ 242:	80 93 02 28 	sts	0x2802, r24	; 0x802802 <corners>
+ 246:	90 93 03 28 	sts	0x2803, r25	; 0x802803 <corners+0x1>
+			room_outline_corners++;//προσθέτουμε γωνίες για να φτασει στο +4
+ 24a:	80 91 00 28 	lds	r24, 0x2800	; 0x802800 <__DATA_REGION_ORIGIN__>
+ 24e:	90 91 01 28 	lds	r25, 0x2801	; 0x802801 <__DATA_REGION_ORIGIN__+0x1>
+ 252:	01 96       	adiw	r24, 0x01	; 1
+ 254:	80 93 00 28 	sts	0x2800, r24	; 0x802800 <__DATA_REGION_ORIGIN__>
+ 258:	90 93 01 28 	sts	0x2801, r25	; 0x802801 <__DATA_REGION_ORIGIN__+0x1>
+ 25c:	2c c0       	rjmp	.+88     	; 0x2b6 <__vector_29+0xc2>
+		}
+		else
+		{
+			LED1(1);
+ 25e:	81 e0       	ldi	r24, 0x01	; 1
+ 260:	90 e0       	ldi	r25, 0x00	; 0
+ 262:	0e 94 81 00 	call	0x102	; 0x102 <LED1>
+			corners--;//μειώνουμε τις γωνίες κατα 1 γιατι κάνει την ανάποδη πορεία
+ 266:	80 91 02 28 	lds	r24, 0x2802	; 0x802802 <corners>
+ 26a:	90 91 03 28 	lds	r25, 0x2803	; 0x802803 <corners+0x1>
+ 26e:	01 97       	sbiw	r24, 0x01	; 1
+ 270:	80 93 02 28 	sts	0x2802, r24	; 0x802802 <corners>
+ 274:	90 93 03 28 	sts	0x2803, r25	; 0x802803 <corners+0x1>
+ 278:	1e c0       	rjmp	.+60     	; 0x2b6 <__vector_29+0xc2>
+		}
+	}
+	//οταν παταμε το switch του pinctrl6 τοτε μπαινει στην else και αναβοσβηνει τα λαμπακια και κανει στοφη 180 μοιρες
+	else{
+		LED0(1);
+ 27a:	81 e0       	ldi	r24, 0x01	; 1
+ 27c:	90 e0       	ldi	r25, 0x00	; 0
+ 27e:	0e 94 71 00 	call	0xe2	; 0xe2 <LED0>
+		LED1(1);
+ 282:	81 e0       	ldi	r24, 0x01	; 1
+ 284:	90 e0       	ldi	r25, 0x00	; 0
+ 286:	0e 94 81 00 	call	0x102	; 0x102 <LED1>
+		LED2(1);
+ 28a:	81 e0       	ldi	r24, 0x01	; 1
+ 28c:	90 e0       	ldi	r25, 0x00	; 0
+ 28e:	0e 94 91 00 	call	0x122	; 0x122 <LED2>
+		//στρίψε 180 μοίρες
+		reverse=1;
+ 292:	81 e0       	ldi	r24, 0x01	; 1
+ 294:	90 e0       	ldi	r25, 0x00	; 0
+ 296:	80 93 04 28 	sts	0x2804, r24	; 0x802804 <reverse>
+ 29a:	90 93 05 28 	sts	0x2805, r25	; 0x802805 <reverse+0x1>
+		LED0(0);
+ 29e:	80 e0       	ldi	r24, 0x00	; 0
+ 2a0:	90 e0       	ldi	r25, 0x00	; 0
+ 2a2:	0e 94 71 00 	call	0xe2	; 0xe2 <LED0>
+		LED1(0);
+ 2a6:	80 e0       	ldi	r24, 0x00	; 0
+ 2a8:	90 e0       	ldi	r25, 0x00	; 0
+ 2aa:	0e 94 81 00 	call	0x102	; 0x102 <LED1>
+		LED2(0);
+ 2ae:	80 e0       	ldi	r24, 0x00	; 0
+ 2b0:	90 e0       	ldi	r25, 0x00	; 0
+ 2b2:	0e 94 91 00 	call	0x122	; 0x122 <LED2>
+
+	}
+	//timer ο οποιος θα κανει interupt για να σταματησει να στρίβει
+	TCA0.SINGLE.CTRLA = TCA_SINGLE_CLKSEL_DIV1024_gc;
+ 2b6:	e0 e0       	ldi	r30, 0x00	; 0
+ 2b8:	fa e0       	ldi	r31, 0x0A	; 10
+ 2ba:	8e e0       	ldi	r24, 0x0E	; 14
+ 2bc:	80 83       	st	Z, r24
+	TCA0.SINGLE.CTRLA |=1;//Enable
+ 2be:	80 81       	ld	r24, Z
+ 2c0:	81 60       	ori	r24, 0x01	; 1
+ 2c2:	80 83       	st	Z, r24
+	TCA0.SINGLE.INTCTRL = TCA_SINGLE_CMP0_bm; //Interrupt Enable
+ 2c4:	80 e1       	ldi	r24, 0x10	; 16
+ 2c6:	82 87       	std	Z+10, r24	; 0x0a
+}
+ 2c8:	ff 91       	pop	r31
+ 2ca:	ef 91       	pop	r30
+ 2cc:	bf 91       	pop	r27
+ 2ce:	af 91       	pop	r26
+ 2d0:	9f 91       	pop	r25
+ 2d2:	8f 91       	pop	r24
+ 2d4:	7f 91       	pop	r23
+ 2d6:	6f 91       	pop	r22
+ 2d8:	5f 91       	pop	r21
+ 2da:	4f 91       	pop	r20
+ 2dc:	3f 91       	pop	r19
+ 2de:	2f 91       	pop	r18
+ 2e0:	0f 90       	pop	r0
+ 2e2:	0f be       	out	0x3f, r0	; 63
+ 2e4:	0f 90       	pop	r0
+ 2e6:	1f 90       	pop	r1
+ 2e8:	18 95       	reti
+
+000002ea <__vector_9>:
+
+//interupt του timer για να σταματησει να στριβει (δεξια ή αριστερα)
+ISR(TCA0_CMP0_vect){
+ 2ea:	1f 92       	push	r1
+ 2ec:	0f 92       	push	r0
+ 2ee:	0f b6       	in	r0, 0x3f	; 63
+ 2f0:	0f 92       	push	r0
+ 2f2:	11 24       	eor	r1, r1
+ 2f4:	2f 93       	push	r18
+ 2f6:	3f 93       	push	r19
+ 2f8:	4f 93       	push	r20
+ 2fa:	5f 93       	push	r21
+ 2fc:	6f 93       	push	r22
+ 2fe:	7f 93       	push	r23
+ 300:	8f 93       	push	r24
+ 302:	9f 93       	push	r25
+ 304:	af 93       	push	r26
+ 306:	bf 93       	push	r27
+ 308:	ef 93       	push	r30
+ 30a:	ff 93       	push	r31
+	TCA0.SINGLE.CTRLA = 0; //Disable
+ 30c:	e0 e0       	ldi	r30, 0x00	; 0
+ 30e:	fa e0       	ldi	r31, 0x0A	; 10
+ 310:	10 82       	st	Z, r1
+	//clear flag
+	int intflags = TCA0.SINGLE.INTFLAGS;
+ 312:	83 85       	ldd	r24, Z+11	; 0x0b
+	TCA0.SINGLE.INTFLAGS=intflags;
+ 314:	83 87       	std	Z+11, r24	; 0x0b
+	LED1(0);
+ 316:	80 e0       	ldi	r24, 0x00	; 0
+ 318:	90 e0       	ldi	r25, 0x00	; 0
+ 31a:	0e 94 81 00 	call	0x102	; 0x102 <LED1>
+	LED2(0);
+ 31e:	80 e0       	ldi	r24, 0x00	; 0
+ 320:	90 e0       	ldi	r25, 0x00	; 0
+ 322:	0e 94 91 00 	call	0x122	; 0x122 <LED2>
+}
+ 326:	ff 91       	pop	r31
+ 328:	ef 91       	pop	r30
+ 32a:	bf 91       	pop	r27
+ 32c:	af 91       	pop	r26
+ 32e:	9f 91       	pop	r25
+ 330:	8f 91       	pop	r24
+ 332:	7f 91       	pop	r23
+ 334:	6f 91       	pop	r22
+ 336:	5f 91       	pop	r21
+ 338:	4f 91       	pop	r20
+ 33a:	3f 91       	pop	r19
+ 33c:	2f 91       	pop	r18
+ 33e:	0f 90       	pop	r0
+ 340:	0f be       	out	0x3f, r0	; 63
+ 342:	0f 90       	pop	r0
+ 344:	1f 90       	pop	r1
+ 346:	18 95       	reti
+
+00000348 <main>:
+
+
+//main
+int main(){
+	//αρχικοποίηση των LED
+	LED_init();
+ 348:	0e 94 5c 00 	call	0xb8	; 0xb8 <LED_init>
+
+	//αρχικοποίηση του timer 
+	TCA0.SINGLE.CNT = 0; //clear counter
+ 34c:	e0 e0       	ldi	r30, 0x00	; 0
+ 34e:	fa e0       	ldi	r31, 0x0A	; 10
+ 350:	10 a2       	std	Z+32, r1	; 0x20
+ 352:	11 a2       	std	Z+33, r1	; 0x21
+	TCA0.SINGLE.CTRLB = 0; //Normal Mode (TCA_SINGLE_WGMODE_NORMAL_gc σελ 207)
+ 354:	11 82       	std	Z+1, r1	; 0x01
+	TCA0.SINGLE.CMP0 = ped; //When reaches this value -> interrupt CLOCK FREQUENCY/1024
+ 356:	84 e1       	ldi	r24, 0x14	; 20
+ 358:	90 e0       	ldi	r25, 0x00	; 0
+ 35a:	80 a7       	std	Z+40, r24	; 0x28
+ 35c:	91 a7       	std	Z+41, r25	; 0x29
+
+
+	//αρχικοποίηση του ADC για Free-Running mode
+	ADC0.CTRLA |= ADC_RESSEL_10BIT_gc; //10-bit resolution
+ 35e:	e0 e0       	ldi	r30, 0x00	; 0
+ 360:	f6 e0       	ldi	r31, 0x06	; 6
+ 362:	80 81       	ld	r24, Z
+ 364:	80 83       	st	Z, r24
+	ADC0.CTRLA |= ADC_FREERUN_bm; //Free-Running mode enabled
+ 366:	80 81       	ld	r24, Z
+ 368:	82 60       	ori	r24, 0x02	; 2
+ 36a:	80 83       	st	Z, r24
+	ADC0.CTRLA |= ADC_ENABLE_bm; //Enable ADC
+ 36c:	80 81       	ld	r24, Z
+ 36e:	81 60       	ori	r24, 0x01	; 1
+ 370:	80 83       	st	Z, r24
+	ADC0.MUXPOS |= ADC_MUXPOS_AIN7_gc; //The bit
+ 372:	86 81       	ldd	r24, Z+6	; 0x06
+ 374:	87 60       	ori	r24, 0x07	; 7
+ 376:	86 83       	std	Z+6, r24	; 0x06
+	//Debug Mode
+	ADC0.DBGCTRL |= ADC_DBGRUN_bm;
+ 378:	84 85       	ldd	r24, Z+12	; 0x0c
+ 37a:	81 60       	ori	r24, 0x01	; 1
+ 37c:	84 87       	std	Z+12, r24	; 0x0c
+	//Window Comparator Mode
+	ADC0.WINLT |= 10; //Set threshold
+ 37e:	82 89       	ldd	r24, Z+18	; 0x12
+ 380:	93 89       	ldd	r25, Z+19	; 0x13
+ 382:	8a 60       	ori	r24, 0x0A	; 10
+ 384:	82 8b       	std	Z+18, r24	; 0x12
+ 386:	93 8b       	std	Z+19, r25	; 0x13
+	ADC0.INTCTRL |= ADC_WCMP_bm; //ενεργοποίηση Interrupts για WCM
+ 388:	82 85       	ldd	r24, Z+10	; 0x0a
+ 38a:	82 60       	ori	r24, 0x02	; 2
+ 38c:	82 87       	std	Z+10, r24	; 0x0a
+	ADC0.CTRLE |= ADC_WINCM0_bm; //Interrupt οταν RESULT < WINLT
+ 38e:	84 81       	ldd	r24, Z+4	; 0x04
+ 390:	81 60       	ori	r24, 0x01	; 1
+ 392:	84 83       	std	Z+4, r24	; 0x04
+
+	//pullup enable and Interrupt enabled with sense on both edges
+	PORTF.PIN5CTRL |= PORT_PULLUPEN_bm | PORT_ISC_BOTHEDGES_gc;//switch να στρίψει
+ 394:	a0 ea       	ldi	r26, 0xA0	; 160
+ 396:	b4 e0       	ldi	r27, 0x04	; 4
+ 398:	55 96       	adiw	r26, 0x15	; 21
+ 39a:	8c 91       	ld	r24, X
+ 39c:	55 97       	sbiw	r26, 0x15	; 21
+ 39e:	89 60       	ori	r24, 0x09	; 9
+ 3a0:	55 96       	adiw	r26, 0x15	; 21
+ 3a2:	8c 93       	st	X, r24
+ 3a4:	55 97       	sbiw	r26, 0x15	; 21
+	PORTF.PIN6CTRL |= PORT_PULLUPEN_bm | PORT_ISC_BOTHEDGES_gc;//switch για να κανει στροφή 180 μοιρών και να κανει αντίθετη πορεια
+ 3a6:	56 96       	adiw	r26, 0x16	; 22
+ 3a8:	8c 91       	ld	r24, X
+ 3aa:	56 97       	sbiw	r26, 0x16	; 22
+ 3ac:	89 60       	ori	r24, 0x09	; 9
+ 3ae:	56 96       	adiw	r26, 0x16	; 22
+ 3b0:	8c 93       	st	X, r24
+	sei();
+ 3b2:	78 94       	sei
+	ADC0.COMMAND |= ADC_STCONV_bm; //Start Conversion
+ 3b4:	80 85       	ldd	r24, Z+8	; 0x08
+ 3b6:	81 60       	ori	r24, 0x01	; 1
+ 3b8:	80 87       	std	Z+8, r24	; 0x08
+
+	LED0(1);//ξεκινάει να κινείται ευθεία
+ 3ba:	81 e0       	ldi	r24, 0x01	; 1
+ 3bc:	90 e0       	ldi	r25, 0x00	; 0
+ 3be:	0e 94 71 00 	call	0xe2	; 0xe2 <LED0>
+
+
+	//το πρόγραμμα τρεχει μεχρι να κανει 8 γωνίες ή αν ειναι σε αναποδη πορεία αν εφτασε πάλι στην αρχη (δηλαδή αφαιρέι απο την μεταβλητή corners μεχρι να γινει 0)
+	if (reverse == 0 && corners < 8)
+ 3c2:	80 91 04 28 	lds	r24, 0x2804	; 0x802804 <reverse>
+ 3c6:	90 91 05 28 	lds	r25, 0x2805	; 0x802805 <reverse+0x1>
+ 3ca:	00 97       	sbiw	r24, 0x00	; 0
+ 3cc:	41 f4       	brne	.+16     	; 0x3de <main+0x96>
+ 3ce:	20 91 02 28 	lds	r18, 0x2802	; 0x802802 <corners>
+ 3d2:	30 91 03 28 	lds	r19, 0x2803	; 0x802803 <corners+0x1>
+ 3d6:	28 30       	cpi	r18, 0x08	; 8
+ 3d8:	31 05       	cpc	r19, r1
+ 3da:	0c f4       	brge	.+2      	; 0x3de <main+0x96>
+ 3dc:	ff cf       	rjmp	.-2      	; 0x3dc <main+0x94>
+	{
+		while(1){}
+	}
+	if (reverse == 1 && corners > 0)
+ 3de:	01 97       	sbiw	r24, 0x01	; 1
+ 3e0:	41 f4       	brne	.+16     	; 0x3f2 <main+0xaa>
+ 3e2:	80 91 02 28 	lds	r24, 0x2802	; 0x802802 <corners>
+ 3e6:	90 91 03 28 	lds	r25, 0x2803	; 0x802803 <corners+0x1>
+ 3ea:	18 16       	cp	r1, r24
+ 3ec:	19 06       	cpc	r1, r25
+ 3ee:	0c f4       	brge	.+2      	; 0x3f2 <main+0xaa>
+ 3f0:	ff cf       	rjmp	.-2      	; 0x3f0 <main+0xa8>
+	{
+		while (1){}
+	}
+}
+ 3f2:	80 e0       	ldi	r24, 0x00	; 0
+ 3f4:	90 e0       	ldi	r25, 0x00	; 0
+ 3f6:	08 95       	ret
+
+000003f8 <_exit>:
+ 3f8:	f8 94       	cli
+
+000003fa <__stop_program>:
+ 3fa:	ff cf       	rjmp	.-2      	; 0x3fa <__stop_program>
