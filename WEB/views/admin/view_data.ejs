@@ -1,0 +1,155 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+<style>
+  html, body{
+      padding:0px;
+      margin:0px;
+      background:rgb(152, 192, 253);
+      font-family: 'Raleway', sans-serif;
+      color:rgb(255, 255, 255);
+      height:100%;
+  } 
+  .data{
+    overflow: hidden;
+    background-color: rgb(66, 105, 231);
+    padding: 15px 30px 30px 30px;
+    border-radius: 10px;
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 50%;
+  }
+  .tit{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 30%;
+  }
+  #fChart{
+    position: absolute;
+    top: 30%;
+    right: 2%;
+  }
+  .inp{
+    position: absolute;
+    top: 20%;
+    right: 10%;
+  }
+  .but {
+    background-color: #0095ff;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.15385;
+    margin: 0;
+    outline: none;
+    padding: 8px .8em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+  }
+  
+  .but:hover,
+  .but:focus {
+    background-color: #07c;
+  }
+  
+  .but:focus {
+    box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+  }
+  
+  .but:active {
+    background-color: #0064bd;
+    box-shadow: none;
+  }
+</style>
+
+
+
+<body>
+<div class="tit">
+  <% if (locals.title != null) { %>
+    <h2><%= title %></h2>
+  <% } %>
+  </div>
+
+<table class="data"><tr><td>
+    <ul>
+          <li> Number of visits: <%= locals.num_vis %> </li>
+          <li> Number of cases: <%= locals.num_case %></li>
+          <li> Number of visits from open cases: <%= locals.num_vis_by_case %></li>
+          <br>
+          <li>Ranking of POI types by visits</li>
+      <% for (var i = 0; i < rank_types_by_visit.length ; i++) { %>
+          <li> <%= rank_types_by_visit[i][0] %> <%= rank_types_by_visit[i][1] %></li>
+      <% } %>
+      <br>
+       <li>Ranking of POI types by visits of people with covid</li>
+      <% for (var i = 0; i < rank_types_by_cases.length ; i++) { %>
+        <li> <%= rank_types_by_cases[i][0] %> <%= rank_types_by_cases[i][1] %></li>
+    <% } %>
+
+
+      </ul>
+      </td>
+    </tr></table>
+    <div class="inp">
+      <label><b>Search visits per day:</b></label>
+    <form action="/admin/stats" method="POST">
+      <label for="from"><b>From:</b> </label>
+      <input type="date" id="from" name="from">
+      <label for="to"><b>To:</b> </label>
+      <input type="date" id="to" name="to">
+      <input class="but" type="submit" value="Search">
+    </form>
+  </div>
+    <canvas id="fChart" style="width:50%;max-width:700px;"></canvas>
+
+
+
+
+
+<script>
+  lab = ["date"]
+  ydata = [0]
+  <% if (locals.fgraph != null){  %>
+    var lab = [<%- fgraph[0].map((el) => JSON.stringify(el)) %>];
+    var ydata = [<%- fgraph[1] %>];
+  <% } %>
+
+var barColors = "red";
+var fChart = new Chart("fChart", {
+  type: "bar",
+  data: {
+    labels:lab,
+    datasets: [{
+      data: ydata
+    }]
+  },
+  options: {
+    legend: {display: false},
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+        }
+      }],
+    }
+  }
+});
+
+</script>
+
+</body>

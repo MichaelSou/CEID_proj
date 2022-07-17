@@ -1,0 +1,155 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  html, body{
+      padding:0px;
+      margin:0px;
+      background:rgb(152, 192, 253);
+      font-family: 'Raleway', sans-serif;
+      color:rgb(255, 255, 255);
+      height:100%;
+  } 
+  .usr {
+overflow: hidden;
+background-color: rgb(66, 105, 231);
+padding: 15px 30px 30px 30px;
+border-radius: 10px;
+position: absolute;
+top: 20%;
+left: 10%;
+width: 30%;
+}
+input[type=text], input[type=password] {
+  display: block;
+  border-radius: 5px;
+  font-size: 16px;
+  background: rgb(152, 192, 253);
+  width: 100%;
+  border: 0;
+  padding: 10px 10px;
+  margin: 15px -10px;
+}
+
+button {
+  cursor: pointer;
+  color: rgb(71, 37, 124);
+  font-size: 16px;
+  text-transform: uppercase;
+  width: 80px;
+  border: 0;
+  padding: 10px 0;
+  margin-top: 10px;
+  margin-left: -5px;
+  border-radius: 5px;
+  }
+.tit {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 40%;
+}
+.expo{
+  position: absolute;
+  top: 70%;
+  left: 0%;
+  width: 100%;
+  
+}
+.msg{
+  color: rgb(136, 10, 10);
+}
+
+.but {
+  background-color: #0095ff;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px .8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.but:hover,
+.but:focus {
+  background-color: #07c;
+}
+
+.but:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+.but:active {
+  background-color: #0064bd;
+  box-shadow: none;
+}
+
+</style>
+
+
+
+<div class="tit">
+<% if (locals.title != null) { %>
+  <h2><%= title %></h2>
+<% } %>
+</div>
+
+
+
+
+<div class="usr">
+
+<form action="/users/userprofile" method="POST">
+    <label for="username">Change username: </label>
+    <input type="text" id="username" name="username"><br>
+    <label for="password">Change password: </label>
+    <input type="password" id="password" name="password"><br>
+
+    <input class="but" type="submit" value="Change">
+  </form>
+  <div class="msg">
+    <% if (locals.message!= null) { %>
+      <%= message %>
+    <% } %>
+    </div>
+</div>
+
+<div class="expo">
+<h2>All visits and cases</h2>
+<table><tr><td>
+<ul>
+  <li><h4>Visits</h4></li>
+  <ul>
+  <% for (var i = 0; i < cvhistory[0].length ; i++) { %>
+      <li display: block> <%= cvhistory[0][i] %></li>
+  <% } %>
+  </ul>
+  </ul>
+  </td>
+  <td>
+    <ul>
+      <li><h4>Cases</h4></li>
+      <ul>
+  <% for (var i = 0; i < cvhistory[1].length ; i++) { %>
+    <li display: block> <%= cvhistory[1][i] %></li>
+  <% } %>
+</ul>
+</ul>
+</td>
+</tr></table>
+
+</div>

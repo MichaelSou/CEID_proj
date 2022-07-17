@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Covid</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+<script src='https://unpkg.com/@turf/turf/turf.min.js'></script>
+<style>
+body { margin: 0; padding: 0; }
+
+#map {
+    position: absolute;
+    top: 5%;
+    bottom: 0;
+    height: 95vh;
+    width: 100%;
+}
+
+#err{
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    color: rgb(136, 10, 10);
+    width: 50%;
+}
+
+</style>
+<p id="err"></p>
+</head>
+<body>
+    <style>
+        .filter-ctrl {
+        position: absolute;
+        top: 15%;
+        left: 5%;
+        z-index: 1;
+        }
+
+        .filter-ctrl input[type='text'] {
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        width: 100%;
+        border: 0;
+        background-color: #fff;
+        margin: 0;
+        color: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
+        width: 180px;
+        }
+        .mapboxgl-popup {
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        }   
+    </style>
+
+<div id="map"></div>
+
+<div class="filter-ctrl">
+    <input id="filter-input" type="text" name="filter" placeholder="Filter by name">
+    </div>
+
+
+
+
+<script>
+    
+	mapboxgl.accessToken = 'pk.eyJ1Ijoia29ucG91ciIsImEiOiJja3lhYnR2am8wNDNqMnZuMGF1cWtvcHJ3In0.cVQxiLKZPEijCS0v6Psp1Q';
+    navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {enableHighAccuracy: true})
+
+    function successLocation(position) {
+        setupMap([position.coords.longitude, position.coords.latitude])
+    }
+
+    function errorLocation() {
+        document.getElementById("err").innerHTML = "Enable location and refresh the page.";
+    }
+    function setupMap(center) {      
+        const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center: center, // starting position [lng, lat]
+        zoom: 15, // starting zoom
+        maxZoom: 18,
+        minZoom: 13.5,
+        dragPan: true,
+        doubleClickZoom: false,
+        scrollZoom: true,
+        keyboard: false,
+        touchZoomRotate: false
+    });
+
+    
+    const filterEl = document.getElementById('filter-input');
+
+    var user_marker = new mapboxgl.Marker({ color: 'black', rotation: 45 })
+            .setLngLat(center)
+            .addTo(map)
+
+    
+    var getPOIs = <%- JSON.stringify(pois) %>;
+    var numppl = <%- JSON.stringify(numppl2) %>;
+    var marker = []
+    var marker_popup = []
+
+
+
+    function populateMap(lista){
+            
+
+        if (marker != null){
+            for (var i = 0; i < marker.length; i++){
+                if (marker[i] != null){
+                    marker[i].remove()
+                    marker_popup[i].remove()
+                }
+            }
+        }
+
+            for (var i = 0; i < lista.length; i++){
+                
+                (new Date().getDay() == 0) ? (day = 6) : (day = (new Date().getDay() -1 ))
+                var marker_color = 'blue';
+                (new Date().getHours() == 23) ? (hour2 = 0) : (hour2 = new Date().getHours()+1)
+
+                popular = (lista[i].populartimes[day].data[new Date().getHours()] + lista[i].populartimes[day].data[hour2])/2
+                
+                if (popular < 33){
+                    marker_color = 'green';
+                }else if (33 <= popular && popular < 66){
+                    marker_color = 'orange';
+                }else {marker_color = 'red';};
+
+                marker[i] = new mapboxgl.Marker({color: marker_color}).setLngLat(lista[i].coordinates)
+                if (turf.distance(center, [lista[i].coordinates.lng, lista[i].coordinates.lat]) < 5){
+                    marker[i].addTo(map)
+                }
+                marker_popup[i] = new mapboxgl.Popup().setHTML("<h1>" + lista[i].name +" </h1>"+
+                                                                        "<h4>Εκτιμώμενη επισκεψιμότητα: " + popular + "</h4>"+
+                                                                        "<h4> Μέσος αριθμός επισκεπτών : " + numppl[i] + "</h4>")
+
+                marker[i].setPopup(marker_popup[i])
+
+                marker_popup[i].on('open', () => {
+                    for (var i = 0; i < marker.length; i++){
+                        popular = (lista[i].populartimes[day].data[new Date().getHours()] + lista[i].populartimes[day].data[hour2])/2
+                        if (turf.distance(center, [marker[i]._lngLat.lng, marker[i]._lngLat.lat]) < 0.02){
+                            marker_popup[i] = new mapboxgl.Popup().setHTML( "<h1>" + lista[i].name + " </h1>" +
+                                                                            "<h4>Εκτιμώμενη επισκεψιμότητα: " + popular + "</h4>"+
+                                                                            "<h4> Μέσος αριθμός επισκεπτών : " + numppl[i] + "</h4>"+
+                                                                            "<form name=viss action=/map method=POST>"+
+                                                                            "<label for=ppl>Αριθμός ατόμων: </label>"+
+                                                                            "<input type=hidden name=name value='"+lista[i].name+"'>"+
+                                                                            "<input type=hidden name=types value='"+lista[i].types+"'>"+
+                                                                            "<input type=text id=ppl name=ppl size = 1><br>"+
+                                                                            "<input type=submit value=Καταχώρηση-Επίσκεψης>"+
+                                                                            "</form>"
+                                                                                
+                            )
+                        }
+                        else{
+                            marker_popup[i] = new mapboxgl.Popup().setHTML("<h1>" + lista[i].name + " </h1>"+
+                                                                            "<h4>Εκτιμώμενη επισκεψιμότητα: " + popular + "</h4>"+
+                                                                            "<h4> μέσος αριθμός επισκεπτών : " + numppl[i] + "</h4>"+
+                                                                            "<input type=hidden id=i name=ppl> <input type=submit style=display:none >")
+                        }
+                        marker[i].setPopup(marker_popup[i])
+                    
+                    
+                }}
+                )}
+            user_marker.remove()
+            user_marker = new mapboxgl.Marker({ color: 'black', rotation: 45, draggable: true})
+                  .setLngLat(center)
+                  .addTo(map)
+            
+        }
+
+        filterEl.addEventListener('keyup', (e) => {
+            var value = e.target.value
+
+            var filtered = []
+            for (var i = 0; i < getPOIs.length; i++){
+                if (getPOIs[i].name.toLowerCase().includes(value.toLowerCase())){
+                    filtered.push(getPOIs[i]);
+                }
+            }
+            populateMap(filtered)
+            
+        })
+    }
+</script>
+</body>
+</html>

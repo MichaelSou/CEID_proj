@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<style>
+  html, body{
+      padding:0px;
+      margin:0px;
+      background:rgb(152, 192, 253);
+      font-family: 'Raleway', sans-serif;
+      color:rgb(255, 255, 255);
+      height:100%;
+  } 
+  .up{
+    overflow: hidden;
+    background-color: rgb(66, 105, 231);
+    padding: 15px 30px 30px 30px;
+    border-radius: 10px;
+    position: fixed;
+    top: 20%;
+    left: 10%;
+    width: 50%;
+  }
+  .tit{
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    width: 30%;
+  }
+
+  .but {
+    background-color: #0095ff;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.15385;
+    margin: 0;
+    outline: none;
+    padding: 8px .8em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+  }
+  
+  .but:hover,
+  .but:focus {
+    background-color: #07c;
+  }
+  
+  .but:focus {
+    box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+  }
+  
+  .but:active {
+    background-color: #0064bd;
+    box-shadow: none;
+  }
+  .butc {
+    background-color: #ff1e00;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.15385;
+    margin: 0;
+    outline: none;
+    padding: 8px .8em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+  }
+  
+  .butc:hover,
+  .butc:focus {
+    background-color: rgb(204, 24, 0);
+  }
+  
+  .butc:focus {
+    box-shadow: 0 0 0 4px rgba(117, 10, 2, 0.15);
+  }
+  
+  .butc:active {
+    background-color: #bd1600;
+    box-shadow: none;
+  }
+</style>
+
+<html lang="en">
+  <head></head>
+  <body>
+    <div class="tit">
+      <% if (locals.title != null) { %>
+        <h2><%= title %></h2>
+      <% } %>
+      </div>
+     <div class="up">
+    <form action="/admin" enctype="multipart/form-data" method="post">
+      <input class="but" type="file" name="filename">
+      <input class="but" type="submit" value="Upload">
+    </form>  
+    <br>
+    <a class="butc" href="/admin/del">Delete all POIs</a></td> 
+  </div> 
+  </body>
+
+</html>

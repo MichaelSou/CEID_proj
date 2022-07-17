@@ -1,0 +1,95 @@
+<html>
+<style>
+  html, body{
+      padding:0px;
+      margin:0px;
+      background:rgb(152, 192, 253);
+      font-family: 'Raleway', sans-serif;
+      color:rgb(255, 255, 255);
+      height:100%;
+  } 
+  .cas {
+  overflow: hidden;
+  background-color: rgb(66, 105, 231);
+  padding: 5px 30px 30px 30px;
+  border-radius: 10px;
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  width: 40%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);}
+input[type=text], input[type=password] {
+  display: block;
+  border-radius: 5px;
+  font-size: 16px;
+  background: rgb(152, 192, 253);
+  width: 100%;
+  border: 0;
+  padding: 10px 10px;
+  margin: 15px -10px;
+}
+.but {
+    background-color: #0095ff;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.15385;
+    margin: 0;
+    outline: none;
+    padding: 8px .8em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+  }
+  
+  .but:hover,
+  .but:focus {
+    background-color: #07c;
+  }
+  
+  .but:focus {
+    box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+  }
+  
+  .but:active {
+    background-color: #0064bd;
+    box-shadow: none;
+  }
+  .err{
+      color: rgb(136, 10, 10);
+    }
+</style>
+
+
+<body>
+<div class="cas">
+<form action="/case" method="POST">
+    <label for="date"><b>Diagnose date:</b> </label>
+    <br>
+    <input type="date" id="date" name="date">
+    <input class="but" type="submit" value="Καταχώρηση">
+  </form>
+  <div class="err">
+  <% if (locals.message != null) { %>
+    <%= message %>
+  <% } %>
+</div>
+</div>
+
+
+</body>
+</html>

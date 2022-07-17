@@ -1,0 +1,36 @@
+<style>
+  html, body{
+      padding:0px;
+      margin:0px;
+      background:rgb(152, 192, 253);
+      font-family: 'Raleway', sans-serif;
+      color:rgb(255, 255, 255);
+      height:100%;
+  } 
+  .tit {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 40%;
+}
+.exp{
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  width: 40%;
+}
+</style>
+
+
+<% if (locals.title != null) { %>
+  <h2 class="tit"><%= title %></h2>
+<% } %>
+
+<ul class="exp">
+  <% for (var i = 0; i < exposure.length ; i++) { %>
+      <li> <%= exposure[i][0] %> <%= exposure[i][1] %></li>
+  <% } %>
+</ul>
+<script>
+
+</script>

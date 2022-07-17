@@ -1,0 +1,117 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    html, body{
+        padding:0px;
+        margin:0px;
+        background:rgb(152, 192, 253);
+        font-family: 'Raleway', sans-serif;
+        color:rgb(255, 255, 255);
+        height:100%;
+    } 
+    /* input[type=text], input[type=password] {
+        width: 40%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }; */
+  .log {
+  overflow: hidden;
+  background-color: rgb(66, 105, 231);
+  padding: 5px 30px 30px 30px;
+  border-radius: 10px;
+  position: absolute;
+  margin: 0;
+  top: 40%;
+  left: 50%;
+  width: 20%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);}
+
+
+
+  input[type=text], input[type=password] {
+    display: block;
+    border-radius: 5px;
+    font-size: 16px;
+    background: rgb(152, 192, 253);
+    width: 100%;
+    border: 0;
+    padding: 10px 10px;
+    margin: 15px -10px;
+  }
+  .err{
+      color: rgb(136, 10, 10);
+  }
+  .but {
+  background-color: #0095ff;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px .8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.but:hover,
+.but:focus {
+  background-color: #07c;
+}
+
+.but:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+.but:active {
+  background-color: #0064bd;
+  box-shadow: none;
+}
+    @media only screen and (max-width: 620px) {
+    /* For mobile phones: */
+    .log {
+        width: 60%;
+}}
+
+</style>
+
+
+<body>
+    <diV class="log">
+<h2>
+    Login
+</h2>
+<% if (errorMsg.length > 0) { %> 
+    <p class="err"><%= errorMsg %>
+<% } %>
+<form class="login" action="/" method="POST">
+    <label for="username">Username</label>
+    <input type="text" placeholder="username" name="username">
+
+    <label for="password">Password</label>
+    <input type="password" placeholder="password" name="password">
+
+    <button class="but">Login</button>
+</form>
+
+<p>If you don't have an account you can register.</p>
+<a class="but" href="/users/new">Register</a>
+</diV>
+</body>
